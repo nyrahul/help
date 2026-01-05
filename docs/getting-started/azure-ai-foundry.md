@@ -94,11 +94,6 @@ OPERATION_METHOD=       # HTTP method for the operation (example: POST)
 OPERATION_URL_TEMPLATE= # Operation URL template (example: /models/chat/completions)
 ```
 
-Perfect — below is the **updated README section** with **exact line numbers called out**, so users know **precisely where to edit** in `policy.xml`.
-This is written in a **copy-paste ready, customer-safe format**.
-
-You can drop this section directly into your existing `README.md`.
-
 ## Mandatory Policy Changes (User Action Required)
 
 Before running the deployment, you **must update two values** in the following file:

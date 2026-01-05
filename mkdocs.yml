@@ -277,6 +277,7 @@ nav:
     - "AI Security":
       - "Overview": "integrations/ai-overview.md"
       - "Bifrost Integration": "integrations/bifrost-integration.md"
+      - "Copilot Studio": "integrations/copilot-studio.md"
       # - "LiteLLM Prompt Firewall Integration": "integrations/litellm-prompt-firewall-integration.md"
     - "API Security":
       - "Overview": "integrations/api-overview.md"

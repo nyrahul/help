@@ -524,6 +524,7 @@ nav:
     - "Support Matrix": "support-matrix/index.md"
     - "CI/CD Support Matrix": "support-matrix/cicd-support-matrix.md"
     - "CSPM Assets Support" : "support-matrix/assets-list.md"
+    - "Cloud Regions Support": "support-matrix/cloud-regions.md"
     - "AI/ML Support Matrix" : "support-matrix/aiml-support-matrix.md"
     - "Compliance Matrix" : "support-matrix/compliance-matrix.md"
     - "VM Support Matrix" : "support-matrix/vms.md"

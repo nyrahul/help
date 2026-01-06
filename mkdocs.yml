@@ -207,6 +207,7 @@ nav:
       - "LLM Static Scans": "how-to/llm-static-scan.md"
       - "ML Static Scans": "how-to/ml-static-scan.md"
     - "Workload Security (CWPP)":
+      - "Runtime Security Architecture": "getting-started/runtime-sec-arch.md"
       - "Kubernetes":
         - "Onboarding Overview": "how-to/k8s-security-onboarding.md"
         - "Runtime Security Prerequisites": "getting-started/cwpp-prereq.md"

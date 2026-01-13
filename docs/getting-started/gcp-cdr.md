@@ -28,7 +28,7 @@ In addition, the scripts will enable the following API's if they are disabled:
 
 The terraform script will be provided to you by AccuKnox team in the onboarding phase.
 
-![image](https://i.ibb.co/pBHrJ0fX/Screenshot-2025-10-09-183648.png)
+![alt text](image-18.png)
 
 ## **Setup**
 

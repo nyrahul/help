@@ -7,7 +7,18 @@ hide:
 ---
 
 <style>
-/* OVERALL CSS */
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+  /* Reset & Base */
+  h1 {
+      display: none !important;
+  }
+
+  /* Fonts */
+  body, .md-typeset, .md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset h4, .md-typeset h5, .md-typeset h6 {
+      font-family: 'Poppins', sans-serif !important;
+  }
+
   .md-main__inner {
     min-width: 103% !important;
     margin-left: -2%;
@@ -15,855 +26,576 @@ hide:
     margin-top: -1%;
   }
 
-  .md-feedback{
-    display: none;
+  .md-content {
+      width: 100% !important;
   }
 
+  /* SECTION 1: HERO */
+  .hero-section {
+    background-color: #000028; /* Dark blue match */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: #cbd5e1;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+
+  .hero-placeholder {
+    background-color: #e6ecf2; /* Light grey placeholder */
+    width: 100%;
+    max-width: 900px;
+    height: 400px;
+    margin: 0 auto;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-placeholder-icon {
+      color: #94a3b8;
+  }
+
+  /* SECTION 2: EXPLORER */
+  .explorer-section {
+    padding: 40px 20px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .explorer-title {
+    text-align: center;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 30px;
+  }
+
+  /* Tabs */
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    background: #f8fafc;
+    padding: 10px;
+    border-radius: 50px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .tab-btn {
+    background: transparent;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .tab-btn.active {
+    background-color: #0f172a; /* Dark active state */
+    color: white;
+  }
+
+  .tab-btn:hover:not(.active) {
+    background-color: #e2e8f0;
+  }
+
+  /* Modules Split View */
+  .modules-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 500px;
+  }
+
+  .modules-sidebar {
+    width: 25%;
+    background-color: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    padding: 20px 0;
+  }
+
+  .module-item {
+    padding: 15px 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #475569;
+    font-weight: 500;
+    transition: background 0.2s;
+    border-left: 3px solid transparent;
+  }
+
+  .module-item:hover {
+    background-color: #f1f5f9;
+  }
+
+  .module-item.active {
+    background-color: #eff6ff;
+    color: #2563eb;
+    border-left-color: #2563eb;
+  }
+
+  .module-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.7;
+  }
+
+  .modules-content {
+    width: 75%;
+    background-color: #f8fafc;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .action-btn {
+    background: white;
+    border: 1px solid #e2e8f0;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: #475569;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .action-btn:first-child {
+      background: #eff6ff;
+      color: #2563eb;
+      border-color: #bfdbfe;
+      font-weight: 600;
+  }
+  .action-btn:hover {
+      background: #f8fafc;
+      color: #0f172a;
+  }
+
+  .module-detail-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+
+  .agentless-badge {
+    background-color: #dbeafe;
+    color: #1e40af;
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+  }
+
+  .module-description {
+    color: #64748b;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 800px;
+  }
+
+  .module-visual-placeholder {
+    flex-grow: 1;
+    background-color: #e2e8f0; /* darker placeholder */
+    border-radius: 8px;
+    margin-bottom: 20px;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+  }
+
+  .learn-more-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .learn-more-link:hover {
+      text-decoration: underline;
+  }
+
+  /* SECTION 3: USE CASES (Resyled) */
+  .use-cases-section {
+    padding: 60px 40px;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .section-heading-3 {
+      text-align: center;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 40px;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .use-case-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      background: white;
+      transition: all 0.2s ease;
+  }
+
+  .use-case-card:hover {
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      border-color: #cbd5e1;
+  }
+
+  .use-case-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #f1f5f9;
+  }
+
+  .use-case-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+  }
+
+  /* Icon variants based on image colors approximately */
+  .icon-blue { background-color: #eff6ff; color: #3b82f6; } /* Light blue bg, Blue icon */
+  .icon-indigo { background-color: #eef2ff; color: #6366f1; }
+  .icon-sky { background-color: #f0f9ff; color: #0ea5e9; }
+
+
+  .use-case-title {
+      font-size: 1.1rem !important; /* Override MD styles */
+      font-weight: 700 !important;
+      color: #0f172a !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      border: none !important;
+      display: block !important;
+      line-height: 1.3;
+  }
+
+  .use-case-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  .use-case-list li {
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+  }
+
+  .use-case-list li::before {
+      content: "›"; /* Simple arrow, or use background image */
+      color: #3b82f6;
+      font-weight: bold;
+      font-size: 1.2rem;
+      line-height: 1rem;
+  }
+
+  .use-case-list a {
+      color: #64748b;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+      line-height: 1.4;
+  }
+
+  .use-case-list a:hover {
+      color: #2563eb;
+  }
+
+  .view-all-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      padding: 12px 24px;
+      background-color: #2563eb;
+      color: white !important;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+  }
+  .view-all-btn:hover {
+      background-color: #1e40af;
+  }
+
+  /* EXISTING SECTIONS STYLES RETAINED PARTIALLY FOR COMPATIBILITY */
+  /* Section 4, 5, 7 styles */
+  .integrations-container {
+    display: flex;
+    align-items: center;
+    background-color: #000025;
+    padding: 80px 40px;
+    font-family: 'Poppins', sans-serif;
+  }
+  .image-container2 { flex: 1; display: flex; justify-content: center; }
+  .integrations-image { max-width: 100%; height: auto; }
+  .text-container-int { flex: 1; color: #fff; margin-left: 40px; }
+.integrations-title { font-weight: 900; font-size: 2rem; margin-bottom: 1rem; line-height: 1.2; color: white;}
+  .integrations-description { font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; color: #cbd5e1; }
+  .btn-style { background-color: #2563eb; color: white !important; padding: 10px 20px; border-radius: 5px; text-decoration: none; display: inline-block; font-weight: bold; border:none; cursor: pointer;}
+
+  .section5-container { background-color: #f9f9fc; padding: 60px 20px; text-align: center; font-family: 'Poppins', sans-serif;}
+  .section5-card-container { display: flex; justify-content: center; gap: 30px; margin-top: 40px; flex-wrap: wrap;}
+  .section5-card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); width: 350px; text-align: center; }
+  .section5-card img { width: 60px; margin-bottom: 15px; }
+  .section5-card-title { font-size: 1.1rem; font-weight: bold; margin-bottom: 10px; color: #0f172a;}
+  .section5-card-link { color: #2563eb; font-weight: 600; text-decoration: none; }
+
+  .home-section-7 { padding: 40px 0; text-align: center; background: white; font-family: 'Poppins', sans-serif;}
+  .section7-nav { display: flex; justify-content: center; gap: 40px; margin-top: 20px; }
+  .section7-link { color: #2563eb; font-weight: 700; text-decoration: none; padding-right: 20px; border-right: 1px solid #cbd5e1; }
+  .section7-link:last-child { border-right: none; }
 
   .section-heading {
       text-align: center;
       color: #030372;
-      font-size: 36px !important;
+      font-size: 1.8rem !important;
       font-weight: 900 !important;
       text-align: center;
       margin-bottom: 10px;
   }
 
-  .btn-style a:visited {
-    color: white;
-  }
-
-/* SECTION 1 CSS */
-.main-container {
-  background-color: #000025;
-  padding: 20px 40px;
-  margin-top: -0.5rem;
-}
-
-.content-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-height: 18rem;
-  padding: 0px 50px;
-}
-
-.text-container {
-  flex: 1;
-}
-
-.header1 {
-  color: #fff;
-  font-size: 30px;
-  font-weight: 900;
-  text-align: left;
-  font-size: 2rem;
-  margin-left: 2rem;
-  line-height: normal;
-}
-.image-container {
-  width: 40%;
-  height: auto;
-}
-
-@media (max-width: 991px) {
-  .content-container {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 30px; /* Reduced padding for smaller screens */
-  }
-
-  .text-container {
-    margin-left: 0;
-    margin-bottom: 15px; /* Adjusted spacing */
-    text-align: center; /* Centered text for better readability */
-  }
-
-  .header1,
-  .header2 {
-    font-size: 2rem; /* Adjusted font size */
-    margin-left: 0; /* Reset margin for consistency */
-  }
-
-  .image-container {
-    display:none;
-  }
-}
-
-@media (max-width: 767px) {
-  .content-container {
-    padding: 20px; /* Further reduced padding */
-  }
-
-  .header1,
-  .header2 {
-    font-size: 1.5rem; /* Smaller font size for compact screens */
-    line-height: 1.2; /* Adjusted line height */
-  }
-
-  .text-container {
-    text-align: center; /* Ensures text stays centered */
-  }
-
-  .image-container {
-    display:none; /* Maintain aspect ratio */
-  }
-}
-
-/* SECTION 2 CSS */
-
-    h1
-    {
-      display: none;
-    }
-.status-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #000025; /* Tomato color for contrast */
-  color: white;
-  padding: 2px 6px;
-  font-size: 0.7rem;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.blog-badge {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: #FFA500; /* Tomato color for contrast */
-  color: white;
-  padding: 2px 6px;
-  font-size: 0.7rem;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  font-weight: normal;
-  cursor: pointer;
-}
-
-.header2{
-      text-align: center;
-      color: #030372;
-      font-weight: 900 !important;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-
-  .container {
-   display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 20px;
-    min-width: min-content;
-    margin: 0 auto;
-    padding-bottom: 5rem;
-    padding-left: 5rem;
-    padding-right: 5rem;
-  }
-
-  .card {
-        background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgb(0 0 0 / 51%);
-    padding: 24px;
-    text-align: center;
-  }
-
-  .card img {
-    width:3.8em;
-  }
-
-  .card h3 {
-    font-size: 24px;
-    margin-top: 0;
-    font-weight: 300;
-    margin-bottom: 12px;
-    font-weight: bolder;
-  }
-
-  .card p {
-    font-size: 14px;
-    color: #555;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-
-  .card a {
-    display: inline-block;
-    color: #030372;
-    text-decoration: none;
-    padding: 8px 16px;
-    font-size: 16px;
-    transition: background-color 0.3s ease;
-    font-weight: bolder;
-  }
-
-  .card a:hover {
-    background-color: #f0f0f0;
-    color: #030372;
-  }
-
   @media (max-width: 991px) {
-    .container {
-      grid-template-columns: repeat(2, 1fr);
-    }
+    .modules-container { flex-direction: column; }
+    .modules-sidebar { width: 100%; border-right: none; border-bottom: 1px solid #e2e8f0; display: flex; overflow-x: auto;}
+    .modules-content { width: 100%; }
+    .integrations-container { flex-direction: column; text-align: center; }
+    .text-container-int { margin-left: 0; margin-top: 30px; }
+    .use-cases-grid { grid-template-columns: 1fr; }
   }
-
-  @media (max-width: 767px) {
-    .container {
-      grid-template-columns: 1fr;
-      padding: 20px;
-    }
-  }
-
-  /* SECTION 3 CSS */
-.use-cases-container {
-  padding: 40px;
-}
-
-.use-cases-title {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 20px;
-}
-
-.use-cases-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 4rem;
-    row-gap: 2rem;
-    padding-top: 2rem;
-    padding-right: 4rem;
-    padding-left: 4rem;
-}
-
-.use-cases-category {
-border-top: 4px solid #0867EC;
-}
-
-.use-cases-category-title {
-  font-size: 20px;
-  font-weight: bold;
-  color:black;
-  margin-bottom: 12px;
-}
-
-.use-cases-list {
-  list-style: none !important;
-  padding: 0;
-  margin: 0;
-}
-
-.use-cases-list li {
-  list-style: square;
-  font-size: 16px;
-  color: #555;
-  margin-bottom: 8px;
-  transition: color 0.3s ease;
-}
-
-.use-cases-list li a {
-  color: #007bff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.use-cases-list li a:hover {
-  color: #0056b3;
-}
-
-  .btn-style {
-    display: block;
-    margin: 20px auto; /* centers the button */
-    background-color: #0066ff; /* primary blue */
-    color: white !important;
-    padding: 10px 20px; /* adds padding */
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px; /* optional: rounded corners */
-    cursor: pointer;
-}
-
-.btn-style:hover {
-    background-color: #0056b3; /* darker blue on hover */
-}
-
-.btn-style a {
-    color: white;
-    text-decoration: none;
-}
-
-.btn-style a:hover {
-    color: white;
-    text-decoration: none;
-}
-
-
-
-@media (max-width: 991px) {
-  .use-cases-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 767px) {
-  .use-cases-grid {
-    grid-template-columns: 1fr;
-    padding: 15px;
-  }
-}
-
-
-/* SECTION 4 CSS */
-.integrations-container {
-  display: flex;
-  align-items: center;
-  background-color: #000025;
-  padding: 100px;
-}
-
-.image-container2 {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.integrations-image {
-  max-width: 100%;
-  height: auto;
-}
-
-.text-container {
-  flex: 1;
-  color: #fff;
-  margin-left: 40px;
-}
-
-.integrations-title {
-font-weight: bold;
-color: white;
-font-weight: 900 !important;
-font-size: xx-large;
-margin-bottom: 1rem;
-line-height: normal;
-}
-
-.integrations-description {
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.get-started-button {
-    max-width: 30%;
-    background-color: #0066ff;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bolder;
-  }
-
-  .get-started-button a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .get-started-button a:hover {
-    color: white;
-    text-decoration: none;
-  }
-
-
-@media (max-width: 991px) {
-  .integrations-container {
-    flex-direction: column;
-    padding: 40px;
-  }
-
-  .text-container {
-    margin-left: 0;
-    margin-top: 20px;
-  }
-}
-
-
-/* SECTION 5 CSS */
-
-  .section5-container {
-        background-color: #f9f9fc;
-        padding: 20px;
-    }
-
-
-    .section5-description {
-        text-align: center;
-        color: #1a1a1a;
-        font-size: 18px;
-        margin-bottom: 40px;
-        margin-top: -20px;
-    }
-
-    .section5-card-container {
-        display: flex;
-        justify-content: center;
-        gap: 30px;
-    }
-
-    .section5-card {
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        text-align: center;
-        width: 450px;
-    }
-
-    .section5-card img {
-        width: 4rem;
-        /* margin-bottom: 20px; */
-        margin-top: -20px;
-    }
-
-    .section5-card-title {
-        color: #1a1a1a;
-        font-size: 20px;
-        margin-bottom: 20px;
-        margin-top: 10px;
-        font-weight: bold;
-    }
-
-    .section5-card-text {
-        color: #1a1a1a;
-        font-size: 14px;
-        margin-bottom: 20px;
-        padding-left: 50px;
-    padding-right: 50px;
-    }
-
-    .section5-card-link {
-        color: #1a73e8;
-        font-size: 14px;
-        text-decoration: none;
-        font-weight: 600;
-    }
-
-@media (max-width: 767px) {
-  .section5-card-container {
-    flex-direction: column;
-  }
-  .section5-card {
-    width: 100%;
-  }
-}
-
-  /* section 6 CSS*/
- .section6-container {
-        padding-left: 150px;
-        padding-right: 150px;
-    }
-
-    .section6-title {
-        color: #1b0b72;
-        font-size: 24px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-  .section6-card-container {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      row-gap: 60px;
-      justify-items: center;
-  }
-    .section6-card {
-        width: 280px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        text-align: left;
-    }
-
-    .section6-card-image {
-
-        background-color: #e0e0e0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .section6-card-content {
-        padding: 15px;
-    }
-
-    .section6-card-title {
-        color: #1a1a1a;
-        font-size: 16px;
-        font-weight: bold;
-        margin-bottom: 8px;
-        margin-top:0px;
-    }
-
-    .section6-card-duration {
-        color: #888888;
-        font-size: 14px;
-        margin-bottom: 8px;
-    }
-
-    .section6-button-container {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-    }
-
-    .section6-button {
-        padding: 10px 20px;
-        font-size: 14px;
-        color: #1a73e8;
-        border: 2px solid #1a73e8;
-        border-radius: 5px;
-        text-decoration: none;
-        display: inline-block;
-    }
-
-    .section6-button:hover {
-        background-color: #1a73e8;
-        color: #ffffff;
-    }
-
-    .play-icon{
-        width: 30px;
-        height: 30px;
-        margin-top: 80px;
-        margin-left: 120px;
-    }
-    @media (max-width: 991px) {
-      .section6-container {
-        padding: 40px;
-      }
-      .section6-card-container {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-    @media (max-width: 767px) {
-      .section6-container {
-        padding: 40px;
-      }
-      .section6-card-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* SECTION 7 CSS*/
-    .section7-container {
-        padding: 20px;
-    }
-
-    .section7-nav {
-        display: flex;
-        gap: 5rem; /* Space between each link */
-        justify-content: center; /* Center the links horizontally */
-
-    }
-
-    .section7-link {
-        color: #0066FF; /* Blue color for text */
-        text-decoration: none; /* Remove underline */
-        font-weight: bold; /* Bold font style */
-        font-size: 16px; /* Font size */
-        padding-right: 5rem;
-        border-right: 1px solid black;
-    }
-
-    .section7-link:hover {
-        text-decoration: underline; /* Underline on hover */
-    }
-
-    @media (max-width: 991px) {
-      .section7-nav {
-        gap: 10px;
-        align-items: center;
-        padding: 20px;
-      }
-      .section7-link {
-        padding-right: 20px;
-      }
-    }
-    @media (max-width: 767px) {
-      .section7-nav {
-        padding: 0 30px;
-        flex-direction: column;
-        gap: 10px;
-        align-items: normal;
-      }
-    }
-
-    /* SECTION 8 CSS */
-.section8-container {
-    background-color: #f4f8fb;
-    padding: 2rem;
-}
-
-.section8-card{
-    background: white;
-    padding: 2rem;
-    margin: 2rem 10rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-}
-
-.section8-left,
-.section8-right {
-    flex: 1;
-}
-
-.section8-left {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.section8-left-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
-
-.section8-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.section8-right-content {
-    text-align: center;
-}
-
-.section8-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 8px;
-}
-
-.section8-subtitle {
-    font-size: 1em;
-    color: #555;
-    margin-bottom: 4px;
-}
-
-.section8-cost {
-    font-size: 1.25em;
-    color: #e53935; /* Red color for emphasis */
-    font-weight: bold;
-    margin-bottom: 16px;
-}
-
-.section8-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    font-weight: bolder;
-}
-
-.section8-button:hover {
-    background-color: #0056b3;
-}
-
-
 </style>
 
-<!-- SECTION 1 - TOP CONTAINER -->
-<section>
-<div class="main-container">
-  <div class="content-container">
-    <div class="text-container">
-      <article class="header1">Welcome to AccuKnox Help Center</article>
-    </div>
-    <div class="image-container">
-      <img src="../cards/header-img-new.png" alt="Help Center" height="300" width="300">
-    </div>
+<!-- SECTION 1: HERO -->
+<section class="hero-section">
+  <div class="hero-title">Welcome to AccuKnox Help Center</div>
+  <div class="hero-subtitle">Explore our comprehensive documentation and resources for cloud-native security</div>
+  <div class="hero-placeholder">
+    <!-- Placeholder Image Graphic -->
+    <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+        <polyline points="21 15 16 10 5 21"></polyline>
+    </svg>
   </div>
-</div>
 </section>
 
-<!-- SECTION 2 -- SUBPRODUCT CARDS -->
-<section style="background-color: #eef5fc; padding-top: 2rem;">
-<article class="section-heading" style="margin-bottom: 1rem;">Enterprise CNAPP Suite</article>
-<div class="container">
-  <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
-    <img src="../cards/devsecops.svg" alt="DevSecOps" style="color: #000025">
-    <h3 class="home-card-heading">DevSecOps (ASPM)</h3>
-    <p>Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.</p>
-    <a href="/use-cases/aspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+<!-- SECTION 2: EXPLORE MODULES -->
+<section class="explorer-section">
+  <div class="explorer-title" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 25px;">Explore AccuKnox's Documentation for Securing Assets at Scale</div>
+
+  <div class="tabs-container" id="categoryTabs">
+    <!-- Injected by JS -->
   </div>
 
-  <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
-    <img src="../cards/cspm.svg" alt="Cloud Security (CSPM)" style="color: #000025">
-    <h3 class="home-card-heading">Cloud Security (CSPM)</h3>
-    <p>Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across clouds.</p>
-    <a href="/use-cases/cspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
+  <div class="modules-container">
+    <div class="modules-sidebar" id="modulesList">
+      <!-- Injected by JS -->
+    </div>
+
+    <div class="modules-content" id="moduleDetail">
+       <!-- Injected by JS -->
+    </div>
   </div>
-
-  <div class="card" style="position: relative;">
-  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/blog/runtime-security-ebpf-bpf-lsm');">Read Blog</div>
-    <img src="../cards/cwpp.svg" alt="Runtime Protection" style="color: #000025">
-    <h3 class="home-card-heading">Runtime Protection (CWPP)</h3>
-    <p>Provides security for cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real-time.</p>
-    <a href="/use-cases/cwpp/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
-  </div>
-
- <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
-    <img src="../cards/aspm.svg" alt="Federal Security" style="color: #000025">
-    <h3 class="home-card-heading">On-Prem Deployment</h3>
-    <p>Secure air-gapped deployment with our CNAPP security suite to achieve federal regulatory standards. </p>
-    <a href="/getting-started/on-prem-installation-guide/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-  <div class="card" style="position: relative;">
-  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/modelknox');">See Features</div>
-    <img src="../cards/aiml-security.svg" alt="AI/ML Security" style="color: #000025">
-    <h3 class="home-card-heading">AI/ML Security</h3>
-    <p>The AI-SPM tool identifies cloud misconfigurations with continuous monitoring and real-time intelligence for AI/ML models.</p>
-    <a href="/use-cases/aiml-usecases/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px; color: #000025;"></a>
-  </div>
-
- <div class="card" style="position: relative;">
-    <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/cdr');">See Features</div>
-    <img src="../cards/kspm.svg" alt="" style="color: #000025">
-    <h3 class="home-card-heading">Cloud Detection & Response <br>(CDR)</h3>
-    <p>Detect & Remediate Threats on AWS, GCP, Azure and catch what matters with AccuKnox.</p>
-    <a href="/getting-started/aws-cdr/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-  <div class="card" style="position: relative;">
-    <img src="../cards/kiem.svg" alt="" style="color: #000025">
-    <h3 class="home-card-heading">K8s Identity & Entitlements Management (KIEM)</h3>
-    <p>Enforces IAM controls and entitlements across K8s clusters for secure authorization and to prevent privilege escalation.</p>
-    <a href="/use-cases/kiem/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-  <div class="card" style="position: relative;">
-    <div class="status-badge">Agentless</div>
-    <img src="../cards/grc.svg" style="width: 2.5rem;" alt="" style="color: #000025">
-    <h3 class="home-card-heading">Continuous Compliance</h3>
-    <p>Provides a unified view of security posture, risk analysis, and compliance across multi-cloud and K8s environments.</p>
-    <a href="/use-cases/compliance/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-  <div class="card" style="position: relative;">
-  <div class="blog-badge" onClick="window.open('https://www.accuknox.com/platform/kspm');">See Features</div>
-  <img src="../cards/open-source.svg" alt="Open Source (KubeArmor)" style="color: #000025">
-
-    <h3 class="home-card-heading">Kubernetes Security Posture Management (KSPM)</h3>
-    <p>Continuously monitors K8s clusters to identify and remediate misconfigurations, vulnerabilities in real-time.</p>
-    <a href="/use-cases/kspm/" target="_blank">LEARN MORE <img src="../cards/arrow.svg" style="width: 1rem; margin-bottom:-5px;color: #000025;"></a>
-  </div>
-
-</div>
-
 </section>
 
-<!-- SECTION 3 - POPULAR USE CASES -->
-<section>
-<div class="use-cases-container">
-  <h2 class="section-heading" style="font-size: 36px; margin-top: 1rem;">Popular Use-Cases</h2>
+<!-- SECTION 3: POPULAR USE CASES -->
+<section class="use-cases-section">
+  <div class="section-heading-3" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 40px;">Popular Use Cases</div>
   <div class="use-cases-grid">
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">DevSecOps (ASPM)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/iac-scan/" target="_blank">IaC Scan AWS S3 Buckets (CI/CD Pipeline)</a></li>
-        <li><a href="/use-cases/sast-sq/" target="_blank">SAST + SQL Injection</a></li>
-        <li><a href="/use-cases/container-scan/" target="_blank">ASPM Container Scan</a></li>
-        <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
-      </ul>
+    <!-- Card 1 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+         </div>
+         <h3 class="use-case-title">DevSecOps (ASPM)</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/use-cases/iac-scan/" target="_blank">IaC Scan AWS S3 Buckets</a></li>
+         <li><a href="/use-cases/sast-sq/" target="_blank">SAST + SQL Injection</a></li>
+         <li><a href="/use-cases/container-scan/" target="_blank">ASPM Container Scan</a></li>
+         <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Container Security (CWPP)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/image-scan/" target="_blank">Container Image Scan</a></li>
-        <li><a href="/use-cases/app-hardening/" target="_blank">Runtime Application Hardening</a></li>
-        <li><a href="/use-cases/hardening/" target="_blank">Workload Hardening</a></li>
-      </ul>
+
+    <!-- Card 2 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+         </div>
+         <h3 class="use-case-title">Container Security (CWPP)</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/use-cases/image-scan/" target="_blank">Container Image Scan</a></li>
+         <li><a href="/use-cases/app-hardening/" target="_blank">Runtime Application Hardening</a></li>
+         <li><a href="/use-cases/hardening/" target="_blank">Workload Hardening</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Securing Secrets Manager (CWPP)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/hashicorp/" target="_blank">HarshiCorp Vault Hardening</a></li>
-        <li><a href="/use-cases/cyberark-conjur/" target="_blank">CyberArk Conjur Hardening</a></li>
-      </ul>
+
+    <!-- Card 3 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+         </div>
+         <h3 class="use-case-title">Secrets Management</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/getting-started/secrets-management/" target="_blank">Secrets Management Policy</a></li>
+         <li><a href="/use-cases/hashicorp/" target="_blank">HashiCorp Vault Hardening</a></li>
+         <li><a href="/use-cases/cyberark-conjur/" target="_blank">CyberArk Conjur Hardening</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Least Permissive Posture Assessment (CWPP)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/app-behavior/" target="_blank">Runtime Application Behaviour Discovery</a></li>
-        <li><a href="/use-cases/forensics/" target="_blank">Audit/Forensics</a></li>
-        <li><a href="/use-cases/zero-trust/" target="_blank">Zero trust Security</a></li>
-      </ul>
+
+    <!-- Card 4 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+         </div>
+         <h3 class="use-case-title">Posture Assessment (CWPP)</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/use-cases/app-behavior/" target="_blank">Runtime Application Behaviour</a></li>
+         <li><a href="/use-cases/forensics/" target="_blank">Audit/Forensics</a></li>
+         <li><a href="/use-cases/zero-trust/" target="_blank">Zero Trust Security</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Host Security (CWPP)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/host-sec/" target="_blank">Host Scan</a></li>
-        <li><a href="/use-cases/malware-scan/" target="_blank">Malware Scan</a></li>
-        <li><a href="/use-cases/vm-hardening/" target="_blank">VM Hardening</a></li>
-      </ul>
+
+    <!-- Card 5 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+         </div>
+         <h3 class="use-case-title">Host Security (CWPP)</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/use-cases/host-sec/" target="_blank">Host Scan</a></li>
+         <li><a href="/use-cases/malware-scan/" target="_blank">Malware Scan</a></li>
+         <li><a href="/use-cases/vm-hardening/" target="_blank">VM Hardening</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Cloud Security (CSPM)</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/asset-inventory/" target="_blank">Asset Inventory</a></li>
-        <li><a href="/use-cases/cloud-misconfigurations" target="_blank">Cloud Misconfiguration and Drift Detection</a></li>
-      </ul>
+
+    <!-- Card 6 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+         </div>
+         <h3 class="use-case-title">Cloud Security (CSPM)</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/use-cases/asset-inventory/" target="_blank">Asset Inventory</a></li>
+         <li><a href="/use-cases/cloud-misconfigurations" target="_blank">Cloud Misconfiguration</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Automation</p>
-      <ul class="use-cases-list">
-        <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
-        <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
-      </ul>
+
+     <!-- Card 7 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+         </div>
+         <h3 class="use-case-title">Automation</h3>
+       </div>
+       <ul class="use-case-list">
+         <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
+         <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">Cloud Detection & Response (CDR)</p>
-      <ul class="use-cases-list">
-        <li><a href="/getting-started/aws-cdr/" target="_blank">Onboarding AWS for CDR</a></li>
-        <li><a href="/getting-started/azure-cdr/" target="_blank">Onboarding Azure for CDR</a></li>
-        <li><a href="/getting-started/gcp-cdr/" target="_blank">Onboarding GCP for CDR</a></li>
-        <li><a href="/getting-started/cdr-setup/" target="_blank">Alert Remediation</a></li>
-      </ul>
+
+    <!-- Card 8 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+         </div>
+         <h3 class="use-case-title">Cloud Detection & Response</h3>
+       </div>
+       <ul class="use-case-list">
+          <li><a href="/getting-started/aws-cdr/" target="_blank">Onboarding AWS for CDR</a></li>
+          <li><a href="/getting-started/azure-cdr/" target="_blank">Onboarding Azure for CDR</a></li>
+          <li><a href="/getting-started/gcp-cdr/" target="_blank">Onboarding GCP for CDR</a></li>
+          <li><a href="/getting-started/cdr-setup/" target="_blank">Alert Remediation</a></li>
+       </ul>
     </div>
-    <div class="use-cases-category">
-      <p class="use-cases-category-title">AI/ML Security</p>
-      <ul class="use-cases-list">
-        <li><a href="/use-cases/jupyter-notebook/" target="_blank">Jupyter Notebook Security</a></li>
-        <li><a href="/use-cases/aiml-runtime-onboard/" target="_blank">LLM Security Onboarding</a></li>
-        <li><a href="/use-cases/modelarmor/" target="_blank">ModelArmor (Open Source)</a></li>
-      </ul>
+
+    <!-- Card 9 -->
+    <div class="use-case-card">
+       <div class="use-case-header">
+         <div class="use-case-icon icon-blue">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect><rect x="9" y="9" width="6" height="6"></rect><line x1="9" y1="1" x2="9" y2="4"></line><line x1="15" y1="1" x2="15" y2="4"></line><line x1="9" y1="20" x2="9" y2="23"></line><line x1="15" y1="20" x2="15" y2="23"></line><line x1="20" y1="9" x2="23" y2="9"></line><line x1="20" y1="14" x2="23" y2="14"></line><line x1="1" y1="9" x2="4" y2="9"></line><line x1="1" y1="14" x2="4" y2="14"></line></svg>
+         </div>
+         <h3 class="use-case-title">AI/ML Security</h3>
+       </div>
+       <ul class="use-case-list">
+          <li><a href="/use-cases/jupyter-notebook/" target="_blank">Jupyter Notebook Security</a></li>
+          <li><a href="/use-cases/aiml-runtime-onboard/" target="_blank">LLM Security Onboarding</a></li>
+          <li><a href="/use-cases/modelarmor/" target="_blank">ModelArmor (Open Source)</a></li>
+       </ul>
     </div>
   </div>
-  <button class="btn-style">
-  <a href="/use-cases/" target="_blank">VIEW ALL USE CASES <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
-</button>
-</div>
+  <a href="/use-cases/" class="view-all-btn">VIEW ALL USE CASES &rarr;</a>
 </section>
 
 <!-- SECTION 4 - INTEGRATION -->
@@ -872,140 +604,198 @@ line-height: normal;
  <div class="image-container2">
    <img src="../cards/integrations-updated.png" alt="Integrations" class="integrations-image">
  </div>
- <div class="text-container">
+ <div class="text-container-int">
    <article class="integrations-title">Integrate Seamlessly In Your Technology Ecosystem</article>
-   <!-- <b class="integrations-description"></b> -->
-   <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack. AccuKnox integrates with major SIEM and security event tools, including Splunk, AWS CloudWatch, Azure Sentinel, and leading ticketing systems like Jira, ServiceNow, and Freshservice.</p>
-   <button class="btn-style">
-   <a href="/integrations/jira-cloud/" target="_blank">GET STARTED <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a>
-   </button>
+   <p class="integrations-description">Check out integrations for Azure, Google Cloud Build, AWS, Jenkins, Gitlab, CheckMarkx and more. We also support Container Platforms like Nutanix, Rafay and Mirantis and Notification platforms like Slack.</p>
+   <a href="/integrations/jira-cloud/" class="btn-style">GET STARTED &rarr;</a>
  </div>
 </div>
 </section>
 
-<!-- SECTION 5 - TECHINCAL SUPPORT -->
+<!-- SECTION 5 - TECHNICAL SUPPORT -->
 <section>
   <div class="section5-container">
     <h2 class="section-heading">Technical Support</h2>
-    <p class="section5-description">Empower your security team with the product knowledge they need to maximize the value of your solution.</p>
-        <div class="section5-card-container">
-            <div class="section5-card">
+    <div class="section5-card-container">
+        <div class="section5-card">
             <img src="../cards/badge1.svg" alt="Tech Support Icon">
             <h3 class="section5-card-title">Raise Ticket</h3>
-            <p class="section5-card-text">Contact our Support Team to quickly resolve any issues.</p>
+            <p>Contact our Support Team to quickly resolve any issues.</p>
             <a href="https://accu-knox.atlassian.net/servicedesk/customer/portal/1" target="_blank" class="section5-card-link">CONNECT WITH US &rarr;</a>
-            </div>
-          <div class="section5-card">
+        </div>
+        <div class="section5-card">
             <img src="../cards/badge2.svg" alt="Certification Icon">
             <h3 class="section5-card-title">AccuKnox Certifications</h3>
-            <p class="section5-card-text">AccuKnox certifications ensure compliance with industry security standards.</p>
+            <p>AccuKnox certifications ensure compliance with industry security standards.</p>
             <a href="https://www.accuknox.com/certifications" target="_blank" class="section5-card-link">GET CERTIFIED &rarr;</a>
-          </div>
-          <div class="section5-card">
+        </div>
+        <div class="section5-card">
             <img src="../cards/badge3.svg" alt="Downloads Icon">
             <h3 class="section5-card-title">Resources</h3>
-            <p class="section5-card-text">Download and make the most of AccuKnox guides and manuals.</p>
+            <p>Download and make the most of AccuKnox guides and manuals.</p>
             <a href="/resources/accuknox-manual/" target="_blank" class="section5-card-link">DOWNLOAD NOW &rarr;</a>
-          </div>
         </div>
+    </div>
   </div>
 </section>
 
-<!-- SECTION 6 -->
-<!-- <section>
-<div class="section6-container">
-    <h2 class="section-heading">Product Demos</h2>
-    <div class="section6-card-container">
-        <div class="section6-card">
-            <a href="https://www.accuknox.com/product-tour/cis-benchmarking" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/1.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">CIS Benchmarking (KSPM)</p>
-            </div>
-            </a>
-        </div>
-        <div class="section6-card">
-        <a href="https://www.accuknox.com/product-tour/how-to-scan-github-iac" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/2.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">How to scan GitHub IaC (ASPM)</p>
-            </div>
-            </a>
-        </div>
-        <div class="section6-card">
-        <a href="https://www.accuknox.com/product-tour/check-and-manage-cloud-findings-for-aws-gcp-and-azure" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/3.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">Check and Manage Cloud Findings for AWS, GCP and Azure (CSPM)</p>
-            </div>
-            </a>
-        </div>
-        <div class="section6-card">
-        <a href="https://www.accuknox.com/product-tour/protect-cve-2024-3094-xz-liblzma-backdoor-attacks" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/4.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">Protect CVE-2024-3094 XZ/liblzma Backdoor Attacks (CWPP)</p>
-            </div>
-            </a>
-        </div>
-        <div class="section6-card">
-           <a href="https://www.accuknox.com/product-tour/how-to-prevent-execution-of-malicious-code-in-jupyter-notebook" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/5.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">Prevent execution of malicious code in Jupyter Notebook (AI/ML Security)</p>
-            </div>
-            </a>
-        </div>
-        <div class="section6-card">
-            <a href="https://www.accuknox.com/product-tour/how-to-create-a-remediation-ticket-using-jira" target="_blank">
-            <div class="section6-card-image">
-                <img src="../cards/6.webp" alt="">
-            </div>
-            <div class="section6-card-content">
-                <p class="section6-card-title">How to Create a Remediation Ticket Using JIRA</p>
-            </div>
-            </a>
-        </div>
-    </div>
-<button class="btn-style">
-  <a href="https://www.youtube.com/@accuknox" target="_blank">MORE VIDEOS <img src="../cards/arrow-white.svg" style="width: 1rem; margin-bottom:-5px; margin-left: 5px; color: white;"></a></a>
-</button>
-</div>
-</section> -->
-
-
-<!-- SECTION 7  - -->
-<section style="padding-top: 2rem; padding-bottom: 2rem;" class="home-section-7">
-<h2 class="section-heading" style="margin-bottom: 1.6em;">Find Out More</h2>
+<!-- SECTION 7 -->
+<section class="home-section-7">
+<h2 class="section-heading">Find Out More</h2>
 <div class="section7-nav">
     <a href="/resources/accuknox-manual/" class="section7-link" target="_blank">RESOURCES</a>
     <a href="/support-matrix/kubearmor-support-matrix/" target="_blank" class="section7-link">SUPPORT MATRIX</a>
-    <a href="https://help.accuknox.com/getting-started/3.0-release/" target="_blank" class="section7-link">LATEST RELEASE NOTES</a>
+    <a href="https://help.accuknox.com/getting-started/3.3-release/" target="_blank" class="section7-link">LATEST RELEASE NOTES</a>
     <a href="/faqs/" target="_blank" class="section7-link" style="border-right: 0px">FAQ</a>
 </div>
 </section>
 
-<!-- SECTION 8  -->
-<!-- <section class="section8-container" style="margin-bottom: -1rem">
-    <div class="section8-card">
-    <div class="section8-left">
-        <img src="../cards/s8-image-left.png" alt="Why AccuKnox?" class="section8-left-image">
-    </div>
-    <div class="section8-right">
-        <div class="section8-right-content">
-            <img src="../cards/s8-image-right.png" alt="Why AccuKnox?" class="section8-left-image"><br><br>
-            <button class="section8-button">SCHEDULE A DEMO</button>
+<script>
+// Icon definitions (SVG strings)
+const iconSet = {
+    // Tabs
+    code: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>',
+    cloud: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>',
+    workloads: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+    ai: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path><path d="M12 16a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2z"></path><path d="M2 12a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2 2 2 0 0 1-2 2H4a2 2 0 0 1-2-2z"></path><path d="M16 12a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2z"></path><line x1="12" y1="8" x2="12" y2="16"></line><line x1="12" y1="16" x2="16" y2="12"></line><line x1="12" y1="8" x2="8" y2="12"></line></svg>',
+    compliance: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><path d="M9 14l2 2 4-4"></path></svg>',
+    onprem: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect><line x1="9" y1="22" x2="9" y2="22"></line><line x1="15" y1="22" x2="15" y2="22"></line></svg>',
+
+    // Module Icons
+    shield: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+    lock: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>',
+    cdr: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>',
+    key: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path></svg>',
+    scan: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18v18H3zM9 9h6M9 15h6"></path></svg>',
+    user_check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>',
+    wheel: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a7 7 0 1 0 10 10"></path></svg>',
+
+    // Action Buttons
+    book: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; display:inline; vertical-align:text-bottom;"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>',
+    puzzle: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; display:inline; vertical-align:text-bottom;"><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>',
+    bulb: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px; display:inline; vertical-align:text-bottom;"><line x1="12" y1="2" x2="12" y2="6"></line><line x1="12" y1="18" x2="12" y2="22"></line><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line><line x1="2" y1="12" x2="6" y2="12"></line><line x1="18" y1="12" x2="22" y2="12"></line><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line></svg>'
+};
+
+const categories = [
+  { id: 'code', label: 'Secure Code', icon: 'code' },
+  { id: 'cloud', label: 'Secure Cloud', icon: 'cloud' },
+  { id: 'workloads', label: 'Secure Workloads', icon: 'workloads' },
+  { id: 'ai', label: 'Secure AI', icon: 'ai' },
+  { id: 'compliance', label: 'Compliance', icon: 'compliance' },
+  { id: 'onprem', label: 'On-Prem', icon: 'onprem' }
+];
+
+const modulesData = {
+  code: [
+    { id: 'devsecops', name: 'DevSecOps (ASPM)', description: 'Embeds security practices into DevOps, automating security testing and compliance throughout the SDLC from build to runtime environments.', link: '/use-cases/aspm/', tag: 'Agentless', shortName: 'DevSecOps', icon: 'shield' },
+    { id: 'api', name: 'API Security', description: 'Comprehensive API security monitoring and protection to detect vulnerabilities, prevent attacks, and ensure secure API communications.', link: '/use-cases/api-security/', shortName: 'API Security', icon: 'lock' }
+  ],
+  cloud: [
+    { id: 'cspm', name: 'Cloud Security (CSPM)', description: 'Identifies cloud misconfigurations, ensures compliance, and continuously monitors security across multi-cloud environments.', link: '/use-cases/cspm/', tag: 'Agentless', shortName: 'Cloud Security', icon: 'cloud' },
+    { id: 'cdr', name: 'Cloud Detection & Response (CDR)', description: 'Detect and remediate threats on AWS, GCP, and Azure, focusing on high-signal security events.', link: '/getting-started/aws-cdr/', shortName: 'Detection & Response', icon: 'cdr' },
+    { id: 'secrets', name: 'Secrets Manager', description: 'Secure storage and management of sensitive credentials, API keys, and secrets using encryption and access controls.', link: '/getting-started/secrets-management/', shortName: 'Secrets Manager', icon: 'key' }
+  ],
+  workloads: [
+    { id: 'cwpp', name: 'Runtime Protection (CWPP)', description: 'Protects cloud workloads by detecting threats, vulnerabilities, and misconfigurations in real time.', link: '/use-cases/cwpp/', shortName: 'Runtime Protection', icon: 'shield' },
+    { id: 'kiem', name: 'K8s Identity & Entitlements (KIEM)', description: 'Enforces IAM controls and entitlement policies across Kubernetes clusters to prevent privilege escalation.', link: '/use-cases/kiem/', shortName: 'K8s Identity', icon: 'user_check' },
+    { id: 'kspm', name: 'Kubernetes Security Posture (KSPM)', description: 'Continuously monitors Kubernetes clusters to identify and remediate misconfigurations and vulnerabilities.', link: '/use-cases/kspm/', shortName: 'K8s Posture', icon: 'wheel' }
+  ],
+  ai: [
+    { id: 'aiml', name: 'AI/ML Security', description: 'AI-SPM capability that detects cloud misconfigurations and monitors AI and ML models with continuous intelligence.', link: '/use-cases/aiml-usecases/', shortName: 'AI/ML Security', icon: 'ai' }
+  ],
+  compliance: [
+     { id: 'comp', name: 'Continuous Compliance', description: 'Unified visibility into security posture, risk, and compliance across multi-cloud and Kubernetes environments.', link: '/use-cases/compliance/', tag: 'Agentless', shortName: 'Compliance', icon: 'compliance' }
+  ],
+  onprem: [
+     { id: 'onprem', name: 'On-Prem Deployment', description: 'Secure air-gapped deployment of the CNAPP platform designed to meet federal and regulated environment requirements.', link: '/getting-started/on-prem-installation-guide/', tag: 'Agentless', shortName: 'On-Prem', icon: 'onprem' }
+  ]
+};
+
+let currentCategory = 'code';
+let currentModuleId = 0; // index
+
+function renderTabs() {
+    const container = document.getElementById('categoryTabs');
+    container.innerHTML = categories.map(cat =>
+        `<button class="tab-btn ${cat.id === currentCategory ? 'active' : ''}" onclick="selectCategory('${cat.id}')">
+           ${iconSet[cat.icon] || ''} ${cat.label}
+        </button>`
+    ).join('');
+}
+
+function renderSidebar() {
+    const container = document.getElementById('modulesList');
+    const mods = modulesData[currentCategory];
+    container.innerHTML = mods.map((mod, index) =>
+        `<div class="module-item ${index === currentModuleId ? 'active' : ''}" onclick="selectModule(${index})">
+            ${iconSet[mod.icon] || iconSet.shield} ${mod.name}
+        </div>`
+    ).join('');
+}
+
+function renderDetail() {
+    const container = document.getElementById('moduleDetail');
+    const mod = modulesData[currentCategory][currentModuleId];
+
+    container.innerHTML = `
+        <div class="content-header">
+            <a href="${mod.link}" class="action-btn">${iconSet.book} Getting Started</a>
+            <a href="${mod.link}" class="action-btn">${iconSet.puzzle} Integrations</a>
+            <a href="${mod.link}" class="action-btn">${iconSet.bulb} Use Case</a>
         </div>
-    </div>
-    </div>
-</section> -->
+        <div class="module-detail-title">
+            ${mod.name}
+            ${mod.tag ? `<span class="agentless-badge">${mod.tag}</span>` : ''}
+        </div>
+        <div class="module-description">
+            ${mod.description}
+        </div>
+        <div class="module-visual-placeholder">
+             <!-- Placeholder for the feature image -->
+             <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#cbd5e1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+             </svg>
+        </div>
+        <a href="${mod.link}" class="learn-more-link">Learn more about ${mod.shortName || mod.name} &rarr;</a>
+    `;
+}
+
+// Make functions global
+window.selectCategory = function(id) {
+    currentCategory = id;
+    currentModuleId = 0;
+    renderTabs();
+    renderSidebar();
+    renderDetail();
+}
+
+// ... existing code ...
+window.selectModule = function (index) {
+    currentModuleId = index;
+    renderSidebar();
+    renderDetail();
+}
+
+// Safe Render Helper
+function safeRender() {
+    // FIX: Remove hash if present to prevent unwanted internal linking on back nav
+    if (window.location.hash) {
+        history.replaceState(null, null, window.location.pathname);
+    }
+
+    if (document.getElementById('categoryTabs')) {
+        renderTabs();
+        renderSidebar();
+        renderDetail();
+    }
+}
+
+// Initial Render methods
+document.addEventListener('DOMContentLoaded', safeRender);
+window.addEventListener('pageshow', safeRender);
+
+// Fallback for immediate execution
+if (document.readyState === 'interactive' || document.readyState === 'complete') {
+    safeRender();
+}
+</script>

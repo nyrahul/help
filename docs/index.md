@@ -22,15 +22,52 @@ hide:
   /* Ensure the main content stretches fully without creating a horizontal gap */
   .md-main__inner {
     width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
     overflow-x: hidden; /* prevents tiny horizontal gaps near the scrollbar */
     overflow-y: visible;
     box-sizing: border-box;
-    margin-top: -1%;
+    margin-top: -10px !important; /* Adjust negative margin to close the gap */
   }
 
   .md-content {
       width: 100% !important;
+      max-width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
   }
+
+  /* Make page sections full-bleed edge-to-edge across the viewport */
+  .md-typeset section,
+  .md-typeset .hero-section,
+  .md-typeset .explorer-section,
+  .md-typeset .use-cases-section,
+  .integrations-container,
+  .section5-container,
+  .home-section-7 {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    padding-left: 20px; /* keep inner spacing */
+    padding-right: 20px;
+    box-sizing: border-box;
+  }
+
+  /* Allow internal containers to expand to full width where needed */
+  .modules-container, .use-cases-grid, .modules-content, .integrations-container .text-container-int {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 auto;
+  }
+
+  /* Prevent horizontal scroll on small screens */
+  html, body, .md-main__inner { overflow-x: hidden; }
 
   /* Make hero section full-bleed so its background reaches the viewport edge */
   .hero-section {
@@ -593,8 +630,17 @@ hide:
       </div>
 
       <!-- AI -->
-      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('aiml', this)">
-         <img src="assets/icons/ai.svg" alt="AI/ML Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI/ML Security
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('prompt-firewall', this)">
+         <img src="assets/icons/ai.svg" alt="Prompt Firewall" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Prompt Firewall
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('red-teaming', this)">
+         <img src="assets/icons/ai.svg" alt="Red Teaming" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Red Teaming
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('ai-dr', this)">
+         <img src="assets/icons/ai.svg" alt="AI-DR" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> AI-DR
+      </div>
+      <div class="module-item" data-cat="ai" style="display:none;" onclick="selectModule('model-armor', this)">
+         <img src="assets/icons/ai.svg" alt="ModelArmor" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> ModelArmor
       </div>
 
       <!-- COMPLIANCE -->
@@ -722,8 +768,8 @@ hide:
         <!-- VM Security -->
         <div id="vmsec" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/how-to/vm-security/agent-based/linux/" class="action-btn">Agent Based</a>
-                <a href="/how-to/vm-security/agentless/cloud-vm-scanning/" class="action-btn">Agentless Cloud</a>
+                <a href="/how-to/vm-security/agent-based/linux/" class="action-btn">Windows/Linux</a>
+                <a href="/how-to/vm-security/agentless/cloud-vm-scanning/" class="action-btn">Cloud VMs (Agentless)</a>
                 <a href="/how-to/vm-onboard-deboard-docker/" class="action-btn">Onboarding</a>
             </div>
             <div class="module-detail-title">
@@ -743,10 +789,9 @@ hide:
         <div id="kspm" class="module-detail-block" style="display:none;">
             <div class="content-header">
 
-                <a href="/use-cases/kspm/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/kspm/" class="action-btn">Integrations</a>
+                <a href="/how-to/registry-overview/" class="action-btn">Registry Scanning</a>
                 <a href="/use-cases/kspm/" class="action-btn">Use Case</a>
-                <a href="/use-cases/kiem/" class="action-btn">KIEM</a>
+                <a href="/use-cases/kiem/" class="action-btn">K8s Identity & Entitlements (KIEM)</a>
             </div>
             <div class="module-detail-title">
                 Kubernetes Security Posture (KSPM)
@@ -760,31 +805,89 @@ hide:
             <a href="/use-cases/kspm/" class="learn-more-link">Learn more about K8s Posture &rarr;</a>
         </div>
 
-        <!-- AIML -->
-        <div id="aiml" class="module-detail-block" style="display:none;">
+        <!-- Prompt Firewall -->
+        <div id="prompt-firewall" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/aiml-usecases/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/aiml-usecases/" class="action-btn">Integrations</a>
-                <a href="/use-cases/aiml-usecases/" class="action-btn">Use Case</a>
+                <a href="/use-cases/prompt-firewall/" class="action-btn">Overview</a>
+                <a href="/use-cases/llm-defense-app-onboard/" class="action-btn">Defense App Onboard</a>
+                <a href="/use-cases/subprompts-categories/" class="action-btn">Subprompts Categories</a>
+                <a href="/integrations/ai-overview/" class="action-btn">Integrations</a>
             </div>
             <div class="module-detail-title">
-                AI/ML Security
+                Prompt Firewall
             </div>
             <div class="module-description">
-                AI-SPM capability that detects cloud misconfigurations and monitors AI and ML models with continuous intelligence.
+                Real-time protection for LLMs against prompt injection, jailbreaking, and data leakage.
             </div>
             <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI/ML Security" />
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="Prompt Firewall" />
             </div>
-            <a href="/use-cases/aiml-usecases/" class="learn-more-link">Learn more about AI/ML Security &rarr;</a>
+
+            <a href="/integrations/ai-overview/" class="action-btn">Integrations</a>
+            <a href="/use-cases/prompt-firewall/" class="learn-more-link">Learn more about Prompt Firewall &rarr;</a>
+        </div>
+
+        <!-- Red Teaming -->
+        <div id="red-teaming" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/how-to/llm-static-scan/" class="action-btn">LLM Static Scan</a>
+                <a href="/how-to/ml-static-scan/" class="action-btn">ML Static Scan</a>
+                <a href="/how-to/aiml-aws-onboard/" class="action-btn">Cloud Onboarding</a>
+            </div>
+            <div class="module-detail-title">
+                Red Teaming
+            </div>
+            <div class="module-description">
+                 Automated adversarial testing to identify vulnerabilities in your AI models before deployment.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="Red Teaming" />
+            </div>
+            <a href="/how-to/llm-static-scan/" class="learn-more-link">Learn more about Red Teaming &rarr;</a>
+        </div>
+
+        <!-- AI-DR -->
+        <div id="ai-dr" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/use-cases/aidr/" class="action-btn">AI-DR Use Cases</a>
+                 <a href="/support-matrix/aiml-support-matrix/" class="action-btn">Support Matrix</a>
+            </div>
+            <div class="module-detail-title">
+                AI Detection & Response (AI-DR)
+            </div>
+            <div class="module-description">
+                Continuous monitoring and response for AI security incidents and anomalies.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="AI-DR" />
+            </div>
+            <a href="/use-cases/aidr/" class="learn-more-link">Learn more about AI-DR &rarr;</a>
+        </div>
+
+        <!-- ModelArmor -->
+        <div id="model-armor" class="module-detail-block" style="display:none;">
+            <div class="content-header">
+                <a href="/use-cases/modelarmor/" class="action-btn">ModelArmor Use Cases</a>
+
+            </div>
+            <div class="module-detail-title">
+                ModelArmor
+            </div>
+            <div class="module-description">
+                Comprehensive model governance and privacy protection for enterprise AI adoption.
+            </div>
+            <div class="module-visual-placeholder">
+                 <img src="assets/images/homepage/aiml-sec.png"  alt="ModelArmor" />
+            </div>
+            <a href="/use-cases/modelarmor/" class="learn-more-link">Learn more about ModelArmor &rarr;</a>
         </div>
 
         <!-- Compliance -->
         <div id="comp" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/compliance/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/compliance/" class="action-btn">Integrations</a>
-                <a href="/use-cases/compliance/" class="action-btn">Use Case</a>
+                <a href="https://accuknox.com/compliance" class="action-btn">Compliance Support Matrix</a>
+                <a href="/resources/compliance-baseline-data/" class="action-btn">Compliance Baseline Data</a>
+                <a href="/how-to/cis-benchmarking/" class="action-btn">CIS Benchmarking</a>
             </div>
             <div class="module-detail-title">
                 Continuous Compliance <span class="agentless-badge">Agentless</span>
@@ -801,9 +904,11 @@ hide:
         <!-- On-Prem -->
         <div id="onprem-install" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/getting-started/on-prem-installation-guide/" class="action-btn">Getting Started</a>
-                <a href="/getting-started/on-prem-installation-guide/" class="action-btn">Integrations</a>
-                <a href="/getting-started/on-prem-installation-guide/" class="action-btn">Use Case</a>
+                <a href="/getting-started/on-prem-overview/" class="action-btn">Overview</a>
+                <a href="/getting-started/on-prem-installation-guide/" class="action-btn">Installation Guide</a>
+                <a href="/getting-started/on-prem-single-node-installation/" class="action-btn">Single Node Installation</a>
+                <a href="/getting-started/security-on-openshift/" class="action-btn">Security on OpenShift</a>
+                <a href="/getting-started/aws-ami/" class="action-btn">AWS AMI</a>
             </div>
             <div class="module-detail-title">
                 On-Prem Deployment <span class="agentless-badge">Agentless</span>

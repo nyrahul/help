@@ -54,8 +54,8 @@ hide:
     margin-left: -50vw;
     margin-right: -50vw;
     width: 100vw;
-    padding-left: 20px; /* keep inner spacing */
-    padding-right: 20px;
+    padding-left: 60px; /* keep inner spacing */
+    padding-right: 60px;
     box-sizing: border-box;
   }
 
@@ -299,25 +299,38 @@ hide:
   }
 
   .action-btn {
-    background: white;
-    border: 1px solid #e2e8f0;
-    padding: 6px 16px;
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    padding: 8px 16px;
     border-radius: 6px;
     font-size: 0.85rem;
-    color: #475569;
+    color: white;
     cursor: pointer;
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
   }
+  /* Remove old first-child override so all look the same */
   .action-btn:first-child {
-      background: #eff6ff;
-      color: #2563eb;
-      border-color: #bfdbfe;
-      font-weight: 600;
+      background: #2563eb;
+      color: white;
+      border-color: #2563eb;
+      font-weight: 500;
+  }
+  .action-btn::after {
+      content: "→";
+      transition: transform 0.2s;
   }
   .action-btn:hover {
-      background: #f8fafc;
-      color: #0f172a;
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+      color: white;
+  }
+  .action-btn:hover::after {
+      transform: translateX(3px);
   }
 
   .module-detail-title {
@@ -929,7 +942,7 @@ hide:
 
 <!-- SECTION 3: POPULAR USE CASES -->
 <section class="use-cases-section">
-  <div class="section-heading-3" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 40px;">Important Links</div>
+  <div class="section-heading-3" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 40px;">Popular resources and guides</div>
   <div class="use-cases-grid">
     <!-- Card 1 -->
     <div class="use-case-card">
@@ -937,13 +950,12 @@ hide:
          <div class="use-case-icon icon-blue">
             <img src="assets/icons/shield.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">DevSecOps (ASPM)</h3>
+         <h3 class="use-case-title">Vulnerability Management</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/use-cases/iac-scan/" target="_blank">IaC Scan AWS S3 Buckets</a></li>
-         <li><a href="/use-cases/sast-sq/" target="_blank">SAST + SQL Injection</a></li>
-         <li><a href="/use-cases/container-scan/" target="_blank">ASPM Container Scan</a></li>
          <li><a href="/use-cases/epss-scoring/" target="_blank">EPSS Scoring</a></li>
+         <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
+         <li><a href="/use-cases/vulnerability/" target="_blank">Vulnerability Management</a></li>
        </ul>
     </div>
 
@@ -951,14 +963,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-            <img src="assets/icons/container.svg" width="24" height="24" alt="" />
+            <img src="assets/icons/cdr.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Container Security (CWPP)</h3>
+         <h3 class="use-case-title">Cloud Detection & Response</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/use-cases/image-scan/" target="_blank">Container Image Scan</a></li>
-         <li><a href="/use-cases/app-hardening/" target="_blank">Runtime Application Hardening</a></li>
-         <li><a href="/use-cases/hardening/" target="_blank">Workload Hardening</a></li>
+         <li><a href="/use-cases/cdr/" target="_blank">CDR Overview</a></li>
+         <li><a href="/getting-started/cdr-setup/" target="_blank">Alert Remediation</a></li>
+         <li><a href="/getting-started/aws-cdr/" target="_blank">Onboarding</a></li>
        </ul>
     </div>
 
@@ -966,14 +978,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-            <img src="assets/icons/api.svg" width="24" height="24" alt="" />
+            <img src="assets/icons/compliance.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Secrets Management</h3>
+         <h3 class="use-case-title">Governance, Risk & Compliance</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/getting-started/secrets-management/" target="_blank">Secrets Management Policy</a></li>
-         <li><a href="/use-cases/hashicorp/" target="_blank">HashiCorp Vault Hardening</a></li>
-         <li><a href="/use-cases/cyberark-conjur/" target="_blank">CyberArk Conjur Hardening</a></li>
+         <li><a href="/use-cases/compliance/" target="_blank">Multi-cloud Compliance</a></li>
+         <li><a href="/use-cases/cloud-misconfigurations/" target="_blank">Drift Detection</a></li>
+         <li><a href="/resources/compliance-baseline-data/" target="_blank">Compliance Baseline Data</a></li>
        </ul>
     </div>
 
@@ -981,14 +993,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-            <img src="assets/icons/posture.svg" width="24" height="24" alt="" />
+            <img src="assets/icons/cloud.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Posture Assessment (CWPP)</h3>
+         <h3 class="use-case-title">Cloud & Infrastructure Matrix</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/use-cases/app-behavior/" target="_blank">Runtime Application Behaviour</a></li>
-         <li><a href="/use-cases/forensics/" target="_blank">Audit/Forensics</a></li>
-         <li><a href="/use-cases/zero-trust/" target="_blank">Zero Trust Security</a></li>
+         <li><a href="/support-matrix/cloud-regions/" target="_blank">Cloud Regions</a></li>
+         <li><a href="/support-matrix/public-cloud/" target="_blank">Public Cloud Support</a></li>
+         <li><a href="/support-matrix/private-cloud/" target="_blank">Private Cloud Support</a></li>
        </ul>
     </div>
 
@@ -996,14 +1008,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-            <img src="assets/icons/host.svg" width="24" height="24" alt="" />
+            <img src="assets/icons/container.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Host Security (CWPP)</h3>
+         <h3 class="use-case-title">App Security Matrix</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/use-cases/host-sec/" target="_blank">Host Scan</a></li>
-         <li><a href="/use-cases/malware-scan/" target="_blank">Malware Scan</a></li>
-         <li><a href="/use-cases/vm-hardening/" target="_blank">VM Hardening</a></li>
+         <li><a href="/support-matrix/cicd-support-matrix/" target="_blank">CI/CD Support</a></li>
+         <li><a href="/support-matrix/iac/" target="_blank">IaC Coverage</a></li>
+         <li><a href="/support-matrix/registry/" target="_blank">Registry Scan Support</a></li>
        </ul>
     </div>
 
@@ -1011,13 +1023,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-            <img src="assets/icons/cloud.svg" width="24" height="24" alt="" />
+            <img src="assets/icons/ai.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Cloud Security (CSPM)</h3>
+         <h3 class="use-case-title">AI & Compliance Matrix</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/use-cases/asset-inventory/" target="_blank">Asset Inventory</a></li>
-         <li><a href="/use-cases/cloud-misconfigurations" target="_blank">Cloud Misconfiguration</a></li>
+         <li><a href="/support-matrix/aiml-support-matrix/" target="_blank">AI/ML Support</a></li>
+         <li><a href="/support-matrix/compliance-matrix/" target="_blank">Compliance Matrix</a></li>
+         <li><a href="/support-matrix/vms/" target="_blank">VM Support Matrix</a></li>
        </ul>
     </div>
 
@@ -1025,13 +1038,14 @@ hide:
     <div class="use-case-card">
        <div class="use-case-header">
          <div class="use-case-icon icon-blue">
-             <img src="assets/icons/cdr.svg" width="24" height="24" alt="" />
+             <img src="assets/icons/wheel.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Automation</h3>
+         <h3 class="use-case-title">Deployment Architectures</h3>
        </div>
        <ul class="use-case-list">
-         <li><a href="/integrations/freshservice-cspm/" target="_blank">Ticketing</a></li>
-         <li><a href="/use-cases/rules-engine-ticket-creation/" target="_blank">Rules Engine</a></li>
+         <li><a href="/getting-started/accuknox-arch/" target="_blank">Enterprise Architecture</a></li>
+         <li><a href="/getting-started/deployment-models/" target="_blank">Deployment Models</a></li>
+         <li><a href="/resources/multitenancy/" target="_blank">Multi-Tenancy Support</a></li>
        </ul>
     </div>
 
@@ -1041,13 +1055,12 @@ hide:
          <div class="use-case-icon icon-blue">
             <img src="assets/icons/eye.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">Cloud Detection & Response</h3>
+         <h3 class="use-case-title">Technical Resources</h3>
        </div>
        <ul class="use-case-list">
-          <li><a href="/getting-started/aws-cdr/" target="_blank">Onboarding AWS for CDR</a></li>
-          <li><a href="/getting-started/azure-cdr/" target="_blank">Onboarding Azure for CDR</a></li>
-          <li><a href="/getting-started/gcp-cdr/" target="_blank">Onboarding GCP for CDR</a></li>
-          <li><a href="/getting-started/cdr-setup/" target="_blank">Alert Remediation</a></li>
+          <li><a href="/resources/accuknox-manual/" target="_blank">User Manual</a></li>
+          <li><a href="/resources/cspm-troubleshooting/" target="_blank">CSPM Troubleshooting</a></li>
+          <li><a href="/resources/vulnerability-database/" target="_blank">Vulnerability DB</a></li>
        </ul>
     </div>
 
@@ -1057,12 +1070,12 @@ hide:
          <div class="use-case-icon icon-blue">
             <img src="assets/icons/grid.svg" width="24" height="24" alt="" />
          </div>
-         <h3 class="use-case-title">AI/ML Security</h3>
+         <h3 class="use-case-title">Release Notes & Updates</h3>
        </div>
        <ul class="use-case-list">
-          <li><a href="/use-cases/jupyter-notebook/" target="_blank">Jupyter Notebook Security</a></li>
-          <li><a href="/use-cases/aiml-runtime-onboard/" target="_blank">LLM Security Onboarding</a></li>
-          <li><a href="/use-cases/modelarmor/" target="_blank">ModelArmor (Open Source)</a></li>
+          <li><a href="/getting-started/3.3-release/" target="_blank">Latest Release (v3.3)</a></li>
+          <li><a href="/getting-started/accuknox-release-notes/" target="_blank">All Release Notes</a></li>
+          <li><a href="/getting-started/kubearmor-release/" target="_blank">KubeArmor Releases</a></li>
        </ul>
     </div>
 

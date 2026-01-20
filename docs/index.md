@@ -19,15 +19,29 @@ hide:
       font-family: 'Poppins', sans-serif !important;
   }
 
+  /* Ensure the main content stretches fully without creating a horizontal gap */
   .md-main__inner {
-    min-width: 103% !important;
-    margin-left: -2%;
-    overflow-y: hidden;
+    width: 100% !important;
+    overflow-x: hidden; /* prevents tiny horizontal gaps near the scrollbar */
+    overflow-y: visible;
+    box-sizing: border-box;
     margin-top: -1%;
   }
 
   .md-content {
       width: 100% !important;
+  }
+
+  /* Make hero section full-bleed so its background reaches the viewport edge */
+  .hero-section {
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    padding-left: 20px; /* keep the original inner spacing */
+    padding-right: 20px;
   }
 
   /* SECTION 1: HERO */
@@ -133,38 +147,43 @@ hide:
   .tabs-container {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 6px;
     margin-bottom: 30px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* keep tabs on one line */
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     background: #f8fafc;
-    padding: 10px;
-    border-radius: 50px;
-    width: fit-content;
+    padding: 6px;
+    border-radius: 32px;
+    width: auto;
     margin-left: auto;
     margin-right: auto;
+    white-space: nowrap;
   }
 
   .tab-btn {
     background: transparent;
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 6px 10px; /* reduced padding */
+    border-radius: 12px; /* smaller radius */
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 0.82rem; /* slightly smaller text */
     font-weight: 600;
     color: #64748b;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
-    transition: all 0.2s;
+    gap: 4px; /* reduced gap between icon and text */
+    transition: all 0.18s;
+    white-space: nowrap;
+    min-width: 0; /* allow tight shrink */
   }
 
   /* Ensure tab icons transition smoothly and are visible when active */
   .tab-btn img {
     transition: filter 0.2s ease, opacity 0.2s ease;
-    width: 18px;
-    height: 18px;
-    opacity: 0.9;
+    width: 14px;
+    height: 14px;
+    opacity: 0.95;
   }
 
   .tab-btn.active {
@@ -518,26 +537,26 @@ hide:
 
 <!-- SECTION 2: EXPLORE MODULES -->
 <section class="explorer-section">
-  <div class="explorer-title" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 25px;">Explore AccuKnox's Documentation for Securing Assets at Scale</div>
+  <div class="explorer-title" style="font-size: 1.8rem; font-weight: 800; text-align: center; color: #0f172a; margin-bottom: 25px;">AccuKnox Docs — Secure Assets at Scale</div>
 
   <div class="tabs-container" id="categoryTabs">
     <button class="tab-btn active" onclick="selectCategory('code', this)">
-        <img src="assets/icons/code.svg" alt="Secure Code" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Code
+        <img src="assets/icons/code.svg" alt="Secure Code" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Code
     </button>
     <button class="tab-btn" onclick="selectCategory('cloud', this)">
-        <img src="assets/icons/cloud.svg" alt="Secure Cloud" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Cloud
+        <img src="assets/icons/cloud.svg" alt="Secure Cloud" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Cloud
     </button>
     <button class="tab-btn" onclick="selectCategory('workloads', this)">
-        <img src="assets/icons/workloads.svg" alt="Secure Workloads" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Workloads
+        <img src="assets/icons/workloads.svg" alt="Secure Workloads" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> Secure Workloads
     </button>
     <button class="tab-btn" onclick="selectCategory('ai', this)">
-        <img src="assets/icons/ai.svg" alt="Secure AI" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> Secure AI
+        <img src="assets/icons/ai.svg" alt="Secure AI" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> Secure AI
     </button>
     <button class="tab-btn" onclick="selectCategory('compliance', this)">
-        <img src="assets/icons/compliance.svg" alt="Compliance" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> Compliance
+        <img src="assets/icons/compliance.svg" alt="Compliance" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> Compliance
     </button>
     <button class="tab-btn" onclick="selectCategory('onprem', this)">
-        <img src="assets/icons/onprem.svg" alt="On-Prem" width="18" height="18" style="vertical-align:text-bottom; margin-right:6px;" /> On-Prem
+        <img src="assets/icons/onprem.svg" alt="On-Prem" width="14" height="14" style="vertical-align:text-bottom; margin-right:6px;" /> On-Prem
     </button>
   </div>
 
@@ -569,9 +588,6 @@ hide:
       <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('vmsec', this)">
          <img src="assets/icons/host.svg" alt="VM Security" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> VM Security
       </div>
-      <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('kiem', this)">
-         <img src="assets/icons/user_check.svg" alt="K8s Identity" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> K8s Identity &amp; Entitlements (KIEM)
-      </div>
       <div class="module-item" data-cat="workloads" style="display:none;" onclick="selectModule('kspm', this)">
          <img src="assets/icons/wheel.svg" alt="Kubernetes Security Posture" width="18" height="18" style="vertical-align:middle; margin-right:6px;" /> Kubernetes Security Posture (KSPM)
       </div>
@@ -597,8 +613,8 @@ hide:
         <!-- DevSecOps -->
         <div id="devsecops" class="module-detail-block">
             <div class="content-header">
-                <a href="/use-cases/aspm/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/aspm/" class="action-btn">Integrations</a>
+                <a href="/how-to/aspm-overview/" class="action-btn">Getting Started</a>
+                <a href="/integrations/cicd-overview/" class="action-btn">Integrations</a>
                 <a href="/use-cases/aspm/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
@@ -616,8 +632,7 @@ hide:
         <!-- API -->
         <div id="api" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/api-security/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/api-security/" class="action-btn">Integrations</a>
+                <a href="/integrations/api-overview/" class="action-btn">Integrations</a>
                 <a href="/use-cases/api-security/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
@@ -635,8 +650,7 @@ hide:
         <!-- CSPM -->
         <div id="cspm" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/cspm/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/cspm/" class="action-btn">Integrations</a>
+                <a href="/how-to/high-level-onboarding/" class="action-btn">Getting Started</a>
                 <a href="/use-cases/cspm/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
@@ -655,8 +669,8 @@ hide:
         <div id="cdr" class="module-detail-block" style="display:none;">
             <div class="content-header">
                 <a href="/getting-started/aws-cdr/" class="action-btn">Getting Started</a>
-                <a href="/getting-started/aws-cdr/" class="action-btn">Integrations</a>
-                <a href="/getting-started/aws-cdr/" class="action-btn">Use Case</a>
+                <a href="/getting-started/cdr-setup/" class="action-btn">Redemediation Setup</a>
+                <a href="/use-cases/cdr/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
                 Cloud Detection & Response (CDR)
@@ -674,8 +688,6 @@ hide:
         <div id="secrets" class="module-detail-block" style="display:none;">
             <div class="content-header">
                 <a href="/getting-started/secrets-management/" class="action-btn">Getting Started</a>
-                <a href="/getting-started/secrets-management/" class="action-btn">Integrations</a>
-                <a href="/getting-started/secrets-management/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
                 Secrets Manager
@@ -692,8 +704,7 @@ hide:
         <!-- CWPP -->
         <div id="cwpp" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="/use-cases/cwpp/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/cwpp/" class="action-btn">Integrations</a>
+                <a href="/getting-started/runtime-sec-arch/" class="action-btn">Getting Started</a>
                 <a href="/use-cases/cwpp/" class="action-btn">Use Case</a>
             </div>
             <div class="module-detail-title">
@@ -711,8 +722,9 @@ hide:
         <!-- VM Security -->
         <div id="vmsec" class="module-detail-block" style="display:none;">
             <div class="content-header">
-                <a href="https://help.accuknox.com/how-to/vm-security/agentless/cloud-vm-scanning/" class="action-btn">Agentless — Cloud VM Scanning</a>
-                <a href="https://help.accuknox.com/how-to/vm-security/agent-based/linux/" class="action-btn">Agent-Based — Linux</a>
+                <a href="/how-to/vm-security/agent-based/linux/" class="action-btn">Agent Based</a>
+                <a href="/how-to/vm-security/agentless/cloud-vm-scanning/" class="action-btn">Agentless Cloud</a>
+                <a href="/how-to/vm-onboard-deboard-docker/" class="action-btn">Onboarding</a>
             </div>
             <div class="module-detail-title">
                 VM Security
@@ -726,31 +738,15 @@ hide:
             <a href="https://help.accuknox.com/use-cases/vm-overview/" class="learn-more-link">Learn more about VM Security &rarr;</a>
         </div>
 
-        <!-- KIEM -->
-        <div id="kiem" class="module-detail-block" style="display:none;">
-            <div class="content-header">
-                <a href="/use-cases/kiem/" class="action-btn">Getting Started</a>
-                <a href="/use-cases/kiem/" class="action-btn">Integrations</a>
-                <a href="/use-cases/kiem/" class="action-btn">Use Case</a>
-            </div>
-            <div class="module-detail-title">
-                K8s Identity & Entitlements (KIEM)
-            </div>
-            <div class="module-description">
-                Enforces IAM controls and entitlement policies across Kubernetes clusters to prevent privilege escalation.
-            </div>
-            <div class="module-visual-placeholder">
-                 <img src="assets/images/homepage/kiem.png"  alt="KIEM" />
-            </div>
-            <a href="/use-cases/kiem/" class="learn-more-link">Learn more about K8s Identity &rarr;</a>
-        </div>
 
         <!-- KSPM -->
         <div id="kspm" class="module-detail-block" style="display:none;">
             <div class="content-header">
+
                 <a href="/use-cases/kspm/" class="action-btn">Getting Started</a>
                 <a href="/use-cases/kspm/" class="action-btn">Integrations</a>
                 <a href="/use-cases/kspm/" class="action-btn">Use Case</a>
+                <a href="/use-cases/kiem/" class="action-btn">KIEM</a>
             </div>
             <div class="module-detail-title">
                 Kubernetes Security Posture (KSPM)

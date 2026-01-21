@@ -27,15 +27,19 @@ description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enh
 - Add permissions for Microsoft Graph.
 
 !!! note "Detailed Steps"
-    Refer to [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure) **Steps 1 to 9** here for a more detailed guide with screenshots.
+    Refer to [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure) **Steps 1 to 8** here for a more detailed guide with screenshots.
 
-- Add the following Application permissions:
+- **After adding the permissions as per above until step 8**, add few more Application permissions:
     - Application.Read.All
     - AuditLog.Read.All
     - AuditLogsQuery-CRM.Read.All
     - AuditLogsQuery.Read.All
 
 ![Copilot Studio Logo](./images/copilot-studio/3.png)
+
+- Now, select `Grant Admin Consent` for Default Directory and say Yes to confirm.
+
+![img](https://help.accuknox.com/how-to/images/azure5-3.png)
 
 ### 1.3 Grant Admin Consent
 
@@ -56,8 +60,8 @@ description: Steps to integrate AccuKnox with Copilot Studio (CP Studio) for enh
 
 ### 2.2 Assign Security Role
 
-!!! note "Detailed Steps"
-    Refer to [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure) **Steps 12 to 17** here for a more detailed guide with screenshots.
-
 - Assign the Service Reader role (or another required role based on access needs).
 - Save the changes.
+
+!!! note "Detailed Steps"
+    Once the above is done complete **Steps 10 to 17** from [Azure AI/ML Onboarding](https://help.accuknox.com/how-to/azure-onboarding/#rapid-onboarding-via-azure)  to complete the Copilot studio integration.

@@ -41,49 +41,50 @@ c. Search "SecurityAudit", Filter by Type: "AWS managed - job function" and sele
 
 ### General Scan Permission (Required)
 
-* Create an **IAM User** and attach the following managed policies:
+Create an **IAM User** and attach the following managed policies:
+
     * `ReadOnly` (AWS managed -- job function)
     * `SecurityAudit` (AWS managed -- job function)
 
 ### Permissions for Bedrock & SageMaker
 
-* Create an **inline policy** with the following permissions:
+Create an **inline policy** with the following permissions:
 
-    === "Bedrock"
+=== "Bedrock"
 
-        ```json
-        [
-            "bedrock:InvokeModel",
-            "bedrock:ListImportedModels",
-            "bedrock:ListModelInvocationJobs"
-        ]
-        ```
+    ```json
+    [
+        "bedrock:InvokeModel",
+        "bedrock:ListImportedModels",
+        "bedrock:ListModelInvocationJobs"
+    ]
+    ```
 
-    === "SageMaker"
+=== "SageMaker"
 
-        ```json
-        [
-            "sagemaker:InvokeEndpoint"
-        ]
-        ```
+    ```json
+    [
+        "sagemaker:InvokeEndpoint"
+    ]
+    ```
 
-    === "Bedrock AgentCore"
+=== "Bedrock AgentCore"
 
-        ```json
-        [
-            "bedrock-agentcore:GetEvaluator",
-            "bedrock-agentcore:InvokeAgentRuntime",
-            "bedrock-agentcore:ListPolicies",
-            "bedrock-agentcore:ListOnlineEvaluationConfigs",
-            "bedrock-agentcore:ListPolicyEngines",
-            "bedrock-agentcore:GetPolicyEngine",
-            "bedrock-agentcore:ListTagsForResource",
-            "bedrock-agentcore:ListActors",
-            "bedrock-agentcore:GetOnlineEvaluationConfig",
-            "bedrock-agentcore:ListEvaluators",
-            "bedrock-agentcore:GetPolicy"
-        ]
-        ```
+    ```json
+    [
+        "bedrock-agentcore:GetEvaluator",
+        "bedrock-agentcore:InvokeAgentRuntime",
+        "bedrock-agentcore:ListPolicies",
+        "bedrock-agentcore:ListOnlineEvaluationConfigs",
+        "bedrock-agentcore:ListPolicyEngines",
+        "bedrock-agentcore:GetPolicyEngine",
+        "bedrock-agentcore:ListTagsForResource",
+        "bedrock-agentcore:ListActors",
+        "bedrock-agentcore:GetOnlineEvaluationConfig",
+        "bedrock-agentcore:ListEvaluators",
+        "bedrock-agentcore:GetPolicy"
+    ]
+    ```
 
 ## Configure IAM User for AI Asset Scanning (AWS)
 

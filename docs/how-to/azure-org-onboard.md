@@ -11,7 +11,7 @@ Managing security across multiple Azure subscriptions is complex. Onboarding you
 
 AccuKnox provides a flexible way to selectively onboard your Azure environment. You can choose to onboard specific Management Groups and Subscriptions or onboard everything while excluding specific parts.
 
-### Onboarding Steps from AccuKnox Control Plane
+### 1. Onboarding Steps from AccuKnox Control Plane
 
 **Step 1:** Select Microsoft Azure and choose Organization Account, then click Next to begin onboarding the Azure org.
 ![alt text](image-38.png)

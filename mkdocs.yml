@@ -192,6 +192,7 @@ nav:
         - "AWS" : "how-to/aws-onboarding.md"
         - "AWS Organizations" : "how-to/aws-org-onboard.md"
         - "Azure" : "how-to/azure-onboarding.md"
+        - "Azure Organizations" : "how-to/azure-org-onboard.md"
         - "GCP" : "how-to/gcp-onboarding.md"
         - "Oracle" : "how-to/oracle-onboarding.md"
         - "Offboard Cloud Account": "how-to/cloud-offboarding.md"
@@ -252,6 +253,7 @@ nav:
       - "GCP Onboarding": "getting-started/gcp-cdr.md"
       - "Azure Onboarding": "getting-started/azure-cdr.md"
     - "SBOM": "getting-started/sbom.md"
+    - "SARIF Findings": "getting-started/sarif-findings.md"
     - "Secrets Management": "getting-started/secrets-management.md"
     - "Reports":
       - "Configure Custom Report": "how-to/custom-reports.md"

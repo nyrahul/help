@@ -90,6 +90,3 @@ After approximately **30 minutes**, the subscription will be automatically deleg
 
 - **User's Azure Account**
 ![User's Azure Account](image-36.png)
-
-- **AccuKnox Azure Account**
-![AccuKnox Azure Account](image-37.png)
